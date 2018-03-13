@@ -47,4 +47,54 @@ public class Data {
         this.highMinusLow = highMinusLow;
         this.momentumFactor = momentumFactor;
     }
+    
+    public long getDate() {
+    	return date;
+    }
+    
+    public Double get(DataType type) {
+    	switch (type) {
+		case aim:
+			return aim;
+		case beta:
+			return beta;
+		case betaHML:
+			return betaHML;
+		case betaMOM:
+			return betaMOM;
+		case betaSMB:
+			return betaSMB;
+		case excessReturn:
+			return excessReturn;
+		case fsrv:
+			return fsrv;
+		case highMinusLow:
+			return highMinusLow;
+		case illiq_amihud:
+			return illiq_amihud;
+		case log_btm:
+			return log_btm;
+		case log_market_cap:
+			return log_market_cap;
+		case marketReturn:
+			return marketReturn;
+		case momentumFactor:
+			return momentumFactor;
+		case pin:
+			return pin;
+		case return_rf:
+			return return_rf;
+		case riskFreeReturn:
+			return riskFreeReturn;
+		case smallMinusBig:
+			return smallMinusBig;
+		case turnover:
+		default:
+			return turnover;
+    	}
+    }
+    
+    public double get_return() {
+    	return return_rf + riskFreeReturn;
+    }
 }
