@@ -118,6 +118,11 @@ public class Data {
 			return riskFreeReturn;
 		case smallMinusBig:
 			return smallMinusBig;
+		case return_return:
+			if (return_rf == null || riskFreeReturn == null) {
+				return null;
+			}
+			return return_rf + riskFreeReturn;
 		case turnover:
 		default:
 			return turnover;

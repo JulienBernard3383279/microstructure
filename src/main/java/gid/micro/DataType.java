@@ -18,5 +18,6 @@ public enum DataType {
     excessReturn,
     smallMinusBig,
     highMinusLow,
-    momentumFactor
+    momentumFactor,
+    return_return
 }
