@@ -15,7 +15,7 @@ public class Main {
             }
         }
 
-        List<Stock> titres = Parser.parseStocks("../data/data.csv", "../data/stocks.csv");
+        List<DirtyStock> titres = Parser.parseDirtyStocks("../data/data.csv", "../data/stocks.csv");
 
         if (titres.size() != 100) {
             System.out.println("Erreur. Nombre de titres différents de 100.");
@@ -29,7 +29,7 @@ public class Main {
         double produitMarche=1;
         for (long i = debut; i < fin; i++) {
             double sousMoyenneAri=0;
-            for (Stock titre : titres) {
+            for (DirtyStock titre : titres) {
                 sousMoyenneAri += (1+titre.getYields().get(i));
             }
             produitMarche *= (1 + sousMoyenneAri/100.0);
@@ -40,7 +40,7 @@ public class Main {
         double sommeMarcheCarres=0;
         for (long i = debut; i < fin; i++) {
             double sousMoyenneAri=0;
-            for (Stock titre : titres) {
+            for (DirtyStock titre : titres) {
                 sousMoyenneAri += (1+titre.getYields().get(i));
             }
             sommeMarche += (sousMoyenneAri/100.0);
@@ -85,9 +85,9 @@ public class Main {
                 double sommeLnCarres = 0;
                 double sommeBetas = 0;
                 per=null;
-                List<Stock> formerList;
-                List<Stock> formerList2;
-                List<Stock> newList;
+                List<DirtyStock> formerList;
+                List<DirtyStock> formerList2;
+                List<DirtyStock> newList;
                 while (date+y < fin) {
 
                     if (P10P1) {

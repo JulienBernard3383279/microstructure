@@ -9,9 +9,22 @@ import java.util.Map;
 
 public class Parser {
 
+    public static List<Stock> parseStocks(String dataCsv) {
+        List<Stock> stocks = new ArrayList<>();
+        BufferedReader br;
+
+        try {
+            br = new BufferedReader(new FileReader(dataCsv));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return stocks;
+    }
+
     @SuppressWarnings("resource")
-    public static List<Stock> parseStocks(String dataCsv, String stockNumberCsv) {
-        Map<Integer, Stock> titres = new Hashtable<>();
+    public static List<DirtyStock> parseDirtyStocks(String dataCsv, String stockNumberCsv) {
+        Map<Integer, DirtyStock> titres = new Hashtable<>();
 
         BufferedReader br = null;
         String line;
@@ -32,7 +45,7 @@ public class Parser {
 
             // STOCKS
             for (Integer id: stockNumbers) {
-                titres.put(id, new Stock(id));
+                titres.put(id, new DirtyStock(id));
             }
 
             br = new BufferedReader(new FileReader(dataCsv));
@@ -49,7 +62,7 @@ public class Parser {
                     int month = Integer.valueOf(stock[2]);
                     double return_rf = Double.valueOf(stock[3])+Double.valueOf(stock[28]);
                     double beta = Double.valueOf(stock[4]);
-                    Stock titre = titres.get(stockNumber);
+                    DirtyStock titre = titres.get(stockNumber);
                     titre.addYield(year, month, return_rf);
                     titre.addBeta(year, month, beta);
                 }
