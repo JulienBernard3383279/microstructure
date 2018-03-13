@@ -1,3 +1,5 @@
+package gid.micro;
+
 public enum DataType {
     return_rf,
     beta,

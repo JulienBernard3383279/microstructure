@@ -1,3 +1,5 @@
+package gid.micro;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,7 +10,7 @@ import java.util.List;
 public class Parser {
 
     public static List<Data> parseData(String dataCsv) {
-        List<Data> dataList = new ArrayList<>();
+        List<Data> dataList = new ArrayList<Data>();
         BufferedReader br;
 
         try {
