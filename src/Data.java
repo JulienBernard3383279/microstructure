@@ -1,5 +1,6 @@
 public class Data {
 
+    private long id;
     private long date;
     private Double return_rf;
     private Double beta;
@@ -20,13 +21,14 @@ public class Data {
     private Double highMinusLow;
     private Double momentumFactor;
 
-    public Data(long date, Double return_rf, Double beta, Double aim,
+    public Data(long id, long date, Double return_rf, Double beta, Double aim,
                 Double log_market_cap, Double log_btm, Double pin,
                 Double fsrv, Double turnover, Double illiq_amihud,
                 Double betaSMB, Double betaHML, Double betaMOM,
                 Double marketReturn, Double riskFreeReturn,
                 Double excessReturn, Double smallMinusBig,
                 Double highMinusLow, Double momentumFactor) {
+        this.id = id;
         this.date = date;
         this.return_rf = return_rf;
         this.beta = beta;
@@ -46,5 +48,31 @@ public class Data {
         this.smallMinusBig = smallMinusBig;
         this.highMinusLow = highMinusLow;
         this.momentumFactor = momentumFactor;
+    }
+
+    @Override
+    public String toString() {
+        return "Data{" +
+                "id=" + id +
+                ", date=" + date +
+                ", return_rf=" + return_rf +
+                ", beta=" + beta +
+                ", aim=" + aim +
+                ", log_market_cap=" + log_market_cap +
+                ", log_btm=" + log_btm +
+                ", pin=" + pin +
+                ", fsrv=" + fsrv +
+                ", turnover=" + turnover +
+                ", illiq_amihud=" + illiq_amihud +
+                ", betaSMB=" + betaSMB +
+                ", betaHML=" + betaHML +
+                ", betaMOM=" + betaMOM +
+                ", marketReturn=" + marketReturn +
+                ", riskFreeReturn=" + riskFreeReturn +
+                ", excessReturn=" + excessReturn +
+                ", smallMinusBig=" + smallMinusBig +
+                ", highMinusLow=" + highMinusLow +
+                ", momentumFactor=" + momentumFactor +
+                '}';
     }
 }
