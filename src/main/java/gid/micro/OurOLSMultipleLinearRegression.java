@@ -12,7 +12,6 @@ public class OurOLSMultipleLinearRegression extends OLSMultipleLinearRegression 
 			array[i] = result.getEntry(i);
 		}
 		return array;
-		
 	}
 	
 	public double[][] ourCalculateBetaVariance() {
