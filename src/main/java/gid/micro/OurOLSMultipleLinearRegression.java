@@ -9,11 +9,10 @@ public class OurOLSMultipleLinearRegression extends OLSMultipleLinearRegression 
 		RealVector result = calculateBeta();
 		System.out.println(result);
 		double[] array = new double[result.getDimension()];
-		for (int i=0; i<result.getDimension(); i++) {
-			array[i]=result.getEntry(i);
+		for (int i = 0 ; i < result.getDimension(); ++i) {
+			array[i] = result.getEntry(i);
 		}
 		return array;
-		
 	}
 	
 	public double[][] ourCalculateBetaVariance() {
