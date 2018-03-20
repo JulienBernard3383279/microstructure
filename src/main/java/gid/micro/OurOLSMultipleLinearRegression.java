@@ -8,8 +8,8 @@ public class OurOLSMultipleLinearRegression extends OLSMultipleLinearRegression 
 	public double[] ourCalculateBeta() {
 		RealVector result = calculateBeta();
 		double[] array = new double[result.getDimension()];
-		for (int i=0; i<result.getDimension(); i++) {
-			array[i]=result.getEntry(i);
+		for (int i = 0 ; i < result.getDimension(); ++i) {
+			array[i] = result.getEntry(i);
 		}
 		return array;
 		

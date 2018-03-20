@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
 
 public class Regression {
-	private OLSMultipleLinearRegression regression;
+	private OurOLSMultipleLinearRegression regression;
 
 	public Regression() {
-		this.regression = new OLSMultipleLinearRegression();
+		this.regression = new OurOLSMultipleLinearRegression();
 	}
 
 	public void loadSampleData(List<Data> dataList, List<DataType> dataTypes) {
@@ -35,19 +35,22 @@ public class Regression {
 
 	public double[] computeRegressionCoefficients() {
 		// Multiple Linear Regression
-        return null;
+        double[] coefficients = this.regression.ourCalculateBeta();
+	    return coefficients;
 	}
 	
-	private boolean hasDatas(List<DataType> dataTypes, Data data) {
+	private boolean hasData(List<DataType> dataTypes, Data data) {
 		for (DataType dataType : dataTypes) {
-			if (data.get(dataType)==null) return false;
+			if (data.get(dataType) == null) {
+			    return false;
+            }
 		}
 		return true;
 	}
 
-	private Map<Long,List<Data>> filter(final List<DataType> dataTypes, List<Data> datas) {
-		return datas.stream()
-				.filter(x -> hasDatas(dataTypes, x))
+	public Map<Long, List<Data>> filter(List<Data> dataList, final List<DataType> dataTypes) {
+		return dataList.stream()
+				.filter(x -> hasData(dataTypes, x))
 				.collect(Collectors.groupingBy(Data::getDate));			
 	}
 }
