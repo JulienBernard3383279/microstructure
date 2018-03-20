@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
-
 public class Regression {
 	private OurOLSMultipleLinearRegression regression;
 
