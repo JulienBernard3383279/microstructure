@@ -9,5 +9,5 @@ public class Main {
         System.out.println(dataList.get(0));
         Correlation corr = new Correlation(dataList);
         System.out.println(corr.toLatex());
-    }
+    } 
 }
