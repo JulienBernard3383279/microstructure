@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
 
-public class Regressions {
+public class Regression {
 	OLSMultipleLinearRegression regression;
 	
 	private boolean hasDatas(List<DataType> dataTypes, Data data) {
