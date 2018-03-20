@@ -7,6 +7,7 @@ import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
 public class OurOLSMultipleLinearRegression extends OLSMultipleLinearRegression {
 	public double[] ourCalculateBeta() {
 		RealVector result = calculateBeta();
+		System.out.println(result);
 		double[] array = new double[result.getDimension()];
 		for (int i=0; i<result.getDimension(); i++) {
 			array[i]=result.getEntry(i);

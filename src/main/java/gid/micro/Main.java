@@ -1,6 +1,8 @@
 package gid.micro;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -8,6 +10,9 @@ public class Main {
         List<Data> dataList = Parser.parseData("./data/data.csv");
         System.out.println(dataList.get(0));
         Correlation corr = new Correlation(dataList);
-        System.out.println(corr.toLatex());
+        //System.out.println(corr.toLatex());
+        
+        Map<Long,List<Data>> dataDict = dataList.stream().collect(Collectors.groupingBy(Data::getDate));
+        GestionAIM.managePort(1990*12, 2000*12, dataDict);
     } 
 }
